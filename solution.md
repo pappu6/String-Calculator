@@ -5,7 +5,7 @@
 Compile:
 ```sh
 #!/bin/bash    
-javac src/main/java/is/ru/stringcalculator/*.java -d classes
+javac src/main/java/stringcalculator/*.java -d classes
 ```    
 Clean:
 ```sh     
@@ -15,7 +15,7 @@ rm -r classes/*
 Compile tests:
 ```sh
 #!/bin/bash
-javac -classpath "classes/:lib/junit-4.11.jar" src/test/java/is/ru/stringcalculator/*.java -d classes
+javac -classpath "classes/:lib/junit-4.11.jar" src/test/java/stringcalculator/*.java -d classes
 ```
 Unit Test:
 ```sh
