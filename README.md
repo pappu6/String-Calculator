@@ -4,38 +4,45 @@ Learn to use Test Driven Development to create a program.
 
 ## Description
 
-**This is a individual assignment.**  
+Try not to read ahead.
 
-1. Create a GitHub repository called String Calculator  
-2. Share this repository with the teachers account: hap2000
-3. Programming language is Java  
-4. After each TDD circle you need to commit to git with descriptive message.  
-5. When the project is finished you turn in the url to the GitHub repository in MySchool.
+Do one task at a time. The trick is to learn to work incrementally.
 
-In this exercise you are going to solve a popular Coding Kata called String Calculator.  This kata was created by Roy Osherove and is designed to help you learn TDD coding and refactoring.  
-Try not to read ahead – do one task at a time. Work incrementally.
+Make sure you only test for correct inputs. there is no need to test for invalid inputs for this kata
 
 ### Kata Steps
-1. Create a String calculator with a method int Add(string numbers)
-  1. The method can take 0, 1, or 2 numbers and will return their sum.
-  2. An empty string will return 0.
-  3. Example inputs: `“”, “1”, or “1,2”`
-  4. Start with the simplest test case of an empty string. Then 1 number. Then 2 numbers.
-  5. Remember to solve things as simply as possible, forcing yourself to write tests for things you didn’t think about.
-  6. Remember to refactor after each passing test.
-2. Allow the Add method to handle an unknown number of arguments/numbers.
-3. Allow the Add method to handle new lines between numbers (instead of commas).
-   1. Example: `“1\n2,3”` should return 6.
-   2. Example: `“1,\n”` is invalid, but you don’t need a test for this case.
-   3. Only test correct inputs – there is no need to deal with invalid inputs for this kata.
-4. Calling Add with a negative number will throw an exception “Negatives not allowed: “ listing all negative numbers that were in the list of numbers.
-   1. Example `“-1,2”` throws “Negatives not allowed: -1”
-   2. Example `“2,-4,3,-5”` throws “Negatives not allowed: -4,-5”
-5. Numbers bigger than 1000 should be ignored.
-   * Example: `“1001,2”` returns 2
-6. Allow the Add method to handle a different delimiter:
-   1. To change the delimiter, the beginning of the string will contain a separate line that looks like this: `“//[delimiter]\n[numbers]”`
-   2. Example: `“//;\n1;2”` should return 3 (the delimiter is ;)
-   3. This first line is optional; all existing scenarios (using , or \n) should work as before.
-
-> It is recommended that you practice you TDD skills by redoing this exercise several times or other TDD katas (search for TDD Kata). You can try to do as many steps as you can in a 60 minute period. I recommend that you try the kata again from scratch until you can complete the entire thing within 30 minutes. **In this exercise you need to finish all steps.**
+Create a simple String calculator with a method signature:
+———————————————
+int Add(string numbers)
+———————————————
+The method can take up to two numbers, separated by commas, and will return their sum. 
+for example “” or “1” or “1,2” as inputs.
+(for an empty string it will return 0) 
+Hints:
+——————
+ - Start with the simplest test case of an empty string and move to one and two numbers
+ - Remember to solve things as simply as possible so that you force yourself to write tests you did not think about
+ - Remember to refactor after each passing test
+———————————————————————————————
+Allow the Add method to handle an unknown amount of numbers
+————————————————————————————————
+Allow the Add method to handle new lines between numbers (instead of commas).
+the following input is ok: “1\n2,3” (will equal 6)
+the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
+——————————————————————————————-
+Support different delimiters
+to change a delimiter, the beginning of the string will contain a separate line that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’ .
+the first line is optional. all existing scenarios should still be supported
+————————————————————————————————
+Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. 
+if there are multiple negatives, show all of them in the exception message.
+————————————————————————————————
+STOP HERE if you are a beginner. Continue if you can finish the steps so far in less than 30 minutes.
+————————————————————————————————
+Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
+————————————————————————————————
+Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+————————————————————————————————
+Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.
+————————————————————————————————
+make sure you can also handle multiple delimiters with length longer than one char
